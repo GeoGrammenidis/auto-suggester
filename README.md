@@ -59,7 +59,7 @@ Create an auto-suggest input field where the user would type at least 3 letters 
 
 ### Improvements in mind
 
-- Nothing is yet written in this section.
+- Change CSS to support multiple viewports.
 
 ### Bugs found
 
@@ -210,3 +210,11 @@ To keep everything centralized, I plan to use css variables. Every component wil
 - [SuggesterLabel](./src/components/Suggester/SuggesterLabel/SuggesterLabel.js)
   - input id should be passed for `for` attribute
   - the text is by default "Search" but it can be altered if passed as a child
+- [SuggesterSubmit](./src/components/Suggester/SuggesterSubmit/SuggesterSubmit.js)
+  - the text is by default "SEARCH" but it can be altered if passed as a child
+  - the button should become disable in case of empty string or maybe an error
+- [SuggesterInput](./src/components/Suggester/SuggesterInput/SuggesterInput.js)
+  - input id should be passed for `id` attribute
+  - `placeholder`, `name` & `type` have default values but can be changed
+  - a wrapper is needed so that it will be easier to position search results later on.
+  - a handler is needed but will be added after commiting.

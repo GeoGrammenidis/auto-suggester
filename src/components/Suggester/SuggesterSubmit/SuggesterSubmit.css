@@ -1,0 +1,22 @@
+.suggester-submit {
+  font-family: var(--suggester-font-family);
+  font-size: var(--suggester-button-font-size);
+  font-weight: var(--suggester-button-font-weight);
+  color: var(--suggester-button-color);
+  background-color: var(--suggester-button-background-color);
+  padding: var(--suggester-button-padding-y) var(--suggester-button-padding-x);
+  margin: var(--suggester-margin);
+  border: var(--suggester-button-border);
+  border-radius: var(--suggester-button-border-radius);
+  transition: background-color 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.suggester-submit[disabled] {
+  background-color: var(--suggester-button-background-color-disabled);
+  cursor: not-allowed;
+}
+
+.suggester-submit:not([disabled]):hover {
+  background-color: var(--suggester-button-background-color-hover);
+}

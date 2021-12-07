@@ -1,10 +1,30 @@
 :root {
   --suggester-font-family: "Open Sans", sans-serif;
+  --suggester-border-radius: 4px;
+  --suggester-margin: 8px;
   --suggester-color: #101f33;
 
   --suggester-label-font-size: 24px;
   --suggester-label-font-weight: 600;
   --suggester-label-color: #4d5c78;
+
+  --suggester-input-font-size: 26px;
+  --suggester-input-padding-x: 28px;
+  --suggester-input-padding-y: 20px;
+  --suggester-input-border-width: 2px;
+  --suggester-input-border: var(--suggester-input-border-width) solid #c7d3e1;
+  --suggester-input-border-radius: var(--suggester-border-radius);
+
+  --suggester-button-font-size: 24px;
+  --suggester-button-font-weight: 600;
+  --suggester-button-color: #fff;
+  --suggester-button-background-color: #226ed3;
+  --suggester-button-background-color-hover: #0956bb;
+  --suggester-button-background-color-disabled: #a6c5ed;
+  --suggester-button-padding-x: 47.5px;
+  --suggester-button-padding-y: 23.5px;
+  --suggester-button-border: none;
+  --suggester-button-border-radius: var(--suggester-border-radius);
 }
 
 .suggester-form-row {

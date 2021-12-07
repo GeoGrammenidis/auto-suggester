@@ -1,0 +1,26 @@
+.suggester-input-wrap {
+  position: relative;
+  width: 100%;
+  margin: var(--suggester-margin);
+}
+
+.suggester-input {
+  font-family: var(--suggester-font-family);
+  width: calc(
+    100% - var(--suggester-input-border-width) * 2 -
+      var(--suggester-input-padding-x) * 2
+  );
+  padding: var(--suggester-input-padding-y) var(--suggester-input-padding-x);
+  font-size: var(--suggester-input-font-size);
+  color: var(--suggester-color);
+  border: var(--suggester-input-border);
+  border-radius: var(--suggester-input-border-radius);
+}
+
+.suggester-input:focus {
+  outline-color: #226ed3;
+}
+
+.suggester-input::placeholder {
+  color: #8798ad;
+}
