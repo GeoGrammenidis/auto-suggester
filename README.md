@@ -172,3 +172,31 @@ Created a README file with markup, which at least contains:
 - list of any bugs found
 - link with a live demo
 - links with sources
+
+### Step 3, creating initial structure
+
+For accessibility reasons we will use a heading, which is going to be hidden. Two dummy elements, one before and one after the suggester, will be used for demo purposes.
+
+For this suggester component we can use one of those 2 element structures:
+
+Structure 1 (the one I choose):
+
+- form
+  - label
+  - input
+  - button
+
+Structure 2:
+
+- form
+  - label
+    - input
+  - button
+
+The label element in the 1st structure needs the `for` attribute for accessibility reasons while the input element will need an `id` to be able to be associated with the label. With this approach we won't need an extra span element to be able to target the text in the label later on, as well as I prefer this kind of structure since it seems clearer for me.
+
+The input is expected to be type of text and it is good to have a name as well.
+
+All the elements will need a class so that we will be able to target them with css later on.
+
+A good idea here is to add div elements to create rows since we want input & button in the same row.
