@@ -173,7 +173,7 @@ Created a README file with markup, which at least contains:
 - link with a live demo
 - links with sources
 
-### Step 3, creating initial structure
+### Step 3, Creating initial structure
 
 For accessibility reasons we will use a heading, which is going to be hidden. Two dummy elements, one before and one after the suggester, will be used for demo purposes.
 
@@ -200,3 +200,13 @@ The input is expected to be type of text and it is good to have a name as well.
 All the elements will need a class so that we will be able to target them with css later on.
 
 A good idea here is to add div elements to create rows since we want input & button in the same row.
+
+### Step 4, CSS
+
+To keep everything centralized, I plan to use css variables. Every component will have its own css but most of the values will be coming from css-variables which are going to be initialized in suggesters main file of css. Another advantage of this is that if we want in the future, we may easily change those values even with javascript, which gives a lot of room for creativity.
+
+### Step 5, Building small components
+
+- [SuggesterLabel](./src/components/Suggester/SuggesterLabel/SuggesterLabel.js)
+  - input id should be passed for `for` attribute
+  - the text is by default "Search" but it can be altered if passed as a child

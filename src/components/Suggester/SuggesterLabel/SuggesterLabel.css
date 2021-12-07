@@ -1,0 +1,8 @@
+.suggester-label {
+  font-family: var(--suggester-font-family);
+  font-size: var(--suggester-label-font-size);
+  font-weight: var(--suggester-label-font-weight);
+  padding: var(--suggester-label-padding-y) var(--suggester-label-padding-x);
+  margin: var(--suggester-margin);
+  color: var(--suggester-label-color);
+}

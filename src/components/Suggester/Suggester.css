@@ -1,4 +1,13 @@
-.as-form-row {
+:root {
+  --suggester-font-family: "Open Sans", sans-serif;
+  --suggester-color: #101f33;
+
+  --suggester-label-font-size: 24px;
+  --suggester-label-font-weight: 600;
+  --suggester-label-color: #4d5c78;
+}
+
+.suggester-form-row {
   display: flex;
   flex-direction: row;
 }
