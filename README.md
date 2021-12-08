@@ -60,6 +60,9 @@ Create an auto-suggest input field where the user would type at least 3 letters 
 ### Improvements in mind
 
 - Change CSS to support multiple viewports.
+- Add loading functionality
+- Cache results for the fetches.
+- Keyboard key events to add
 
 ### Bugs found
 
@@ -218,3 +221,23 @@ To keep everything centralized, I plan to use css variables. Every component wil
   - `placeholder`, `name` & `type` have default values but can be changed
   - a wrapper is needed so that it will be easier to position search results later on.
   - a handler is needed but will be added after commiting.
+
+### Step 6, Connecting the API
+
+- [fetching api](./src/utils/api.js)
+  - created the url with the params needed
+  - created an Observable. Switchmap is used so it will always switch to the latest fetch.
+  - return an Observable to be subscribed
+- [useSuggester hook](./src/hooks/useSuggester.js)
+  - created a state for the suggester
+  - useReducer used because I prefer an imperative way of programming.
+  - a useEffect to track input changes which:
+    - checks the inputs value if is greater or equal than 3 otherwise, it won't try to fetch anything.
+    - tries to fetch from the API with the help of the [util/api.js](./src/utils/api.js)
+    - a useRef flag is being used to make sure that the component is still mounted when the response comes
+  - a function to handle the event from the input. Also, a debounce of .5s on the input was added in [suggesterInput](./src/components/Suggester/SuggesterInput/SuggesterInput.js) to let the user type and not spam with unnecessary API calls.
+  - returned values for now:
+    - handleChange, the function that handles the input on change event
+    - searchText, the value of the input
+    - error, a boolean value that is true if an error occurs
+    - stories, to be used shortly to display the results on the screen.
