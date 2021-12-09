@@ -241,3 +241,29 @@ To keep everything centralized, I plan to use css variables. Every component wil
     - searchText, the value of the input
     - error, a boolean value that is true if an error occurs
     - stories, to be used shortly to display the results on the screen.
+
+### Step 6, Added components for results
+
+- [SuggesterResults](./src/components/Suggester/SuggesterInput/SuggesterResults/SuggesterResults.js)
+  - this should include all the results
+  - class `_open` is added when there are results, to help with css
+  - worth mentioning that there is added css to transition the height smoothly when the number of the results change
+  - an animation added so that the border and the shadow will be kept until the transition ends when there is no result
+- [SuggesterStory](./src/components/Suggester/SuggesterInput/SuggesterResults/SuggesterStory/SuggesterStory.js)
+  - this is the container for each result. It includes a title & details about the story.
+- [SuggesterStoryTitle](./src/components/Suggester/SuggesterInput/SuggesterResults/SuggesterStory/SuggesterStoryTitle/SuggesterStoryTitle.js)
+  - before displaying the title:
+    - stringified emphasized elements are found in the string and saved in an array
+    - then the title is split with delimiter the emphasized elements
+    - and then with the help of reduce function reconstructed it with html elements this time.
+- [SuggesterStoryDetails](./src/components/Suggester/SuggesterInput/SuggesterResults/SuggesterStory/SuggesterStoryDetails/SuggesterStoryDetails.js)
+  - displaying details about the result
+
+hooks added to separate logic
+
+- [useSetResultsNumberForCss](./src/hooks/useSetResultsNumberForCss.js)
+  - changes CSS variable to change the height of the results
+  - sets the number of the results which are going to be displayed
+- [useStoryValidation](./src/hooks/useStoryValidation.js)
+  - validates the data from stories object
+  - converts invalid data to valid ones

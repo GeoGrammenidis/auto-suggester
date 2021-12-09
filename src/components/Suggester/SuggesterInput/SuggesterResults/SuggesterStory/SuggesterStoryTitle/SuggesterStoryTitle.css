@@ -1,0 +1,35 @@
+.suggester-story-title {
+  padding-bottom: 4px;
+  font-size: var(--suggester-results-font-size);
+  font-weight: var(--suggester-results-font-weight);
+  text-decoration: none;
+  color: var(--suggester-results-color);
+}
+
+.suggester-story-title::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--suggester-results-background-color);
+  z-index: -1;
+}
+
+.suggester-story-title::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.suggester-story-title:hover::before {
+  background-color: var(--suggester-results-background-color-hover);
+}
+
+.suggester-highlighted {
+  color: var(--suggester-results-highlighted-color);
+}

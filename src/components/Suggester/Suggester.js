@@ -5,17 +5,21 @@ import SuggesterLabel from "./SuggesterLabel/SuggesterLabel";
 import SuggesterSubmit from "./SuggesterSubmit/SuggesterSubmit";
 import SuggesterInput from "./SuggesterInput/SuggesterInput";
 import useSuggester from "../../hooks/useSuggester";
+import useSetResultsNumberForCss from "../../hooks/useSetResultsNumberForCss";
 import "./Suggester.css";
 
-export default function Suggester({ inputId = "searchText_" + uuidv4() }) {
+export default function Suggester({
+  inputId = "searchText_" + uuidv4(),
+  storiesNumber = 5,
+}) {
   const { searchText, error, errorMessage, stories, handleChange } =
     useSuggester();
-  console.log("stories:", stories);
+  useSetResultsNumberForCss(stories, storiesNumber);
   if (error) {
     console.log(errorMessage);
   }
   return (
-    <form className="suggester-form">
+    <form className="suggester-form" autoComplete="off">
       <div className="suggester-form-row">
         <SuggesterLabel inputId={inputId}></SuggesterLabel>
       </div>
@@ -25,6 +29,8 @@ export default function Suggester({ inputId = "searchText_" + uuidv4() }) {
           inputId={inputId}
           searchText={searchText}
           handleChange={handleChange}
+          stories={stories}
+          storiesNumber={storiesNumber}
         ></SuggesterInput>
         <SuggesterSubmit
           searchText={searchText}
@@ -36,4 +42,5 @@ export default function Suggester({ inputId = "searchText_" + uuidv4() }) {
 }
 Suggester.propTypes = {
   inputId: PropTypes.string,
+  storiesNumber: PropTypes.number,
 };

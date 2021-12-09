@@ -1,0 +1,9 @@
+.suggester-story {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: var(--suggester-result-height);
+  padding: 0 var(--suggester-results-padding-x);
+  border: var(--suggester-result-border);
+}

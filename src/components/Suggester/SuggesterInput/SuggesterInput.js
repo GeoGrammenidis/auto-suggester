@@ -1,6 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import PropTypes from "prop-types";
+import SuggesterResults from "./SuggesterResults/SuggesterResults";
 import "./SuggesterInput.css";
 
 export default function SuggesterInput({
@@ -9,6 +10,9 @@ export default function SuggesterInput({
   placeholder = "Search title",
   type = "text",
   name = "searchText",
+  stories,
+  storiesNumber,
+  searchText,
 }) {
   return (
     <div className="suggester-input-wrap">
@@ -20,6 +24,11 @@ export default function SuggesterInput({
         type={type}
         name={name}
       ></input>
+      <SuggesterResults
+        stories={stories}
+        searchText={searchText}
+        storiesNumber={storiesNumber}
+      ></SuggesterResults>
     </div>
   );
 }
@@ -29,4 +38,7 @@ SuggesterInput.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
+  stories: PropTypes.array.isRequired,
+  storiesNumber: PropTypes.number.isRequired,
+  searchText: PropTypes.string.isRequired,
 };

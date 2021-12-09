@@ -25,6 +25,27 @@
   --suggester-button-padding-y: 23.5px;
   --suggester-button-border: none;
   --suggester-button-border-radius: var(--suggester-border-radius);
+
+  --suggester-results-font-size: 26px;
+  --suggester-results-font-weight: 600;
+  --suggester-results-color: #101f33;
+  --suggester-results-highlighted-color: #ff7100;
+  --suggester-results-background-color: #fff;
+  --suggester-results-background-color-hover: #f4f5f7;
+  --suggester-results-padding-x: 30px;
+  --suggester-results-border: 1px solid #e0e9eb;
+  --suggester-results-shadow: 0px 2px 6px #c3ccce;
+  --suggester-result-height: 120px;
+  --suggester-result-border-width: 1px;
+  --suggester-result-border: var(--suggester-result-border-width) solid #e7e9ea;
+
+  --suggester-results-details-font-size: 20px;
+  --suggester-results-details-color: #69778e;
+  --suggester-results-details-delimeter: "|";
+  --suggester-results-details-spacing: 36px;
+
+  --sugester-results-number: 0;
+  --sugester-results-max-number: 5;
 }
 
 .suggester-form-row {

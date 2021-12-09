@@ -1,0 +1,16 @@
+.suggester-story-details {
+  font-size: var(--suggester-results-details-font-size);
+  color: var(--suggester-results-details-color);
+}
+
+.suggester-story-detail:not(:last-child) {
+  position: relative;
+  margin-right: var(--suggester-results-details-spacing);
+  z-index: -1;
+}
+
+.suggester-story-detail:not(:last-child)::before {
+  content: var(--suggester-results-details-delimeter);
+  position: absolute;
+  right: calc((var(--suggester-results-details-spacing) / -2) - 2px);
+}
