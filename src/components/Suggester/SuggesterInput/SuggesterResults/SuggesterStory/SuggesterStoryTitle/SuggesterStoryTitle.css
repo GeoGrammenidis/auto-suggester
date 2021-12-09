@@ -33,3 +33,9 @@
 .suggester-highlighted {
   color: var(--suggester-results-highlighted-color);
 }
+
+@media (max-width: 560px) {
+  .suggester-story-title {
+    font-size: calc(var(--suggester-results-font-size) * 0.8);
+  }
+}

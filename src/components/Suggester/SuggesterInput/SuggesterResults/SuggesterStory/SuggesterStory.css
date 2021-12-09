@@ -7,3 +7,9 @@
   padding: 0 var(--suggester-results-padding-x);
   border: var(--suggester-result-border);
 }
+
+@media (max-width: 560px) {
+  .suggester-story {
+    padding: 0 calc(var(--suggester-results-padding-x) * 0.8);
+  }
+}

@@ -14,3 +14,9 @@
   position: absolute;
   right: calc((var(--suggester-results-details-spacing) / -2) - 2px);
 }
+
+@media (max-width: 560px) {
+  .suggester-story-details {
+    display: none;
+  }
+}

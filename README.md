@@ -59,7 +59,6 @@ Create an auto-suggest input field where the user would type at least 3 letters 
 
 ### Improvements in mind
 
-- Change CSS to support multiple viewports.
 - Commends in the code.
 - Build tests for each component.
 
@@ -292,3 +291,7 @@ Cached results from fetching because we need to have latest theresults. There is
 ### Step 10, Added loading state
 
 Supported loading. I had already prepared the states to support it. The search was done in 2 state changes for that reason.
+
+### Step 11, CSS for other viewports
+
+Changed a bit the css to be able to support other viewports. Could be done in multiple ways but I chose to simplify the results and reduce the size of the title a bit.
