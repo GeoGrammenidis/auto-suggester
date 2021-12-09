@@ -7,7 +7,7 @@ export default function useSetResultsNumberForCss(stories, storiesNumber = 5) {
 
   React.useEffect(() => {
     document.documentElement.style.setProperty(
-      "--sugester-results-number",
+      "--suggester-results-number",
       storiesLength
     );
     return () => {};
@@ -15,7 +15,7 @@ export default function useSetResultsNumberForCss(stories, storiesNumber = 5) {
 
   React.useEffect(() => {
     document.documentElement.style.setProperty(
-      "--sugester-results-max-number",
+      "--suggester-results-max-number",
       storiesNumber
     );
     return () => {};

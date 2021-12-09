@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { fetchStories } from "../utils/api";
+import cacheData from "memory-cache";
 const MIN_SEARCH_LENGTH = 3;
 
 function storiesReducer(state, action) {
@@ -45,6 +46,10 @@ function storiesReducer(state, action) {
         stories: [],
       };
     case "success":
+      // caching results for 5 mins if it isn't already cached.
+      if (!cacheData.get(state.searchText)) {
+        cacheData.put(state.searchText, action.stories, 1000 * 60 * 5);
+      }
       return {
         ...state,
         stories: action.stories.hits,
@@ -76,15 +81,22 @@ export default function useSuggester(storiesNumber = 5, inputId) {
 
   React.useEffect(() => {
     _isMounted.current = true;
-    searchText.length >= MIN_SEARCH_LENGTH &&
-      fetchStories(searchText).subscribe({
-        next: (stories) =>
-          _isMounted.current && dispatch({ type: "success", stories }),
-        error: (message) =>
-          _isMounted.current &&
-          dispatch({ type: "error", errorMessage: message.toString() }),
-        complete: () => console.log("done"),
-      });
+    if (searchText.length >= MIN_SEARCH_LENGTH) {
+      var cachedValue = cacheData.get(searchText);
+      if (cachedValue) {
+        dispatch({ type: "success", stories: cachedValue });
+      } else {
+        fetchStories(searchText).subscribe({
+          next: (stories) =>
+            _isMounted.current && dispatch({ type: "success", stories }),
+          error: (message) =>
+            _isMounted.current &&
+            dispatch({ type: "error", errorMessage: message.toString() }),
+          complete: () => console.log("done"),
+        });
+      }
+    }
+
     return () => (_isMounted.current = false);
   }, [searchText]);
 

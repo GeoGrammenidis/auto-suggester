@@ -7,13 +7,13 @@
     (
         var(--suggester-result-height) +
           (var(--suggester-result-border-width) * 2)
-      ) * var(--sugester-results-max-number)
+      ) * var(--suggester-results-max-number)
   );
   height: calc(
     (
         var(--suggester-result-height) +
           (var(--suggester-result-border-width) * 2)
-      ) * var(--sugester-results-number)
+      ) * var(--suggester-results-number)
   );
   border: var(--suggester-result-border);
   box-shadow: var(--suggester-results-shadow);

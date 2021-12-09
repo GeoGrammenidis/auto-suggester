@@ -44,8 +44,8 @@
   --suggester-results-details-delimeter: "|";
   --suggester-results-details-spacing: 36px;
 
-  --sugester-results-number: 0;
-  --sugester-results-max-number: 5;
+  --suggester-results-number: 0;
+  --suggester-results-max-number: 5;
 }
 
 .suggester-form-row {

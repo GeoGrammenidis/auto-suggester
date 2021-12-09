@@ -61,7 +61,6 @@ Create an auto-suggest input field where the user would type at least 3 letters 
 
 - Change CSS to support multiple viewports.
 - Add loading functionality
-- Cache results for the fetches.
 - Commends in the code.
 - Build tests for each component.
 
@@ -286,3 +285,7 @@ hooks added to separate logic
   - aria-activedescendant, is needed to inform about the active option
 - aria-live: assertive, to announce each time the number of results found
 - a text before input to inform that users can navigate results with up and down arrow keys
+
+### Step 9, Added cache
+
+Cached results from fetching because we need to have latest theresults. There is no point in fetching again something that is already fetched but we keep it only for 5 mins so that we keep results fresh.
