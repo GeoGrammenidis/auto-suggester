@@ -20,6 +20,8 @@ export default function useSetResultsNumberForCss(stories, storiesNumber = 5) {
     );
     return () => {};
   }, [storiesNumber]);
+
+  return { storiesLength };
 }
 useSetResultsNumberForCss.propTypes = {
   stories: PropTypes.array.isRequired,

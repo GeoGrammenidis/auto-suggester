@@ -62,7 +62,8 @@ Create an auto-suggest input field where the user would type at least 3 letters 
 - Change CSS to support multiple viewports.
 - Add loading functionality
 - Cache results for the fetches.
-- Keyboard key events to add
+- Commends in the code.
+- Build tests for each component.
 
 ### Bugs found
 
@@ -242,7 +243,7 @@ To keep everything centralized, I plan to use css variables. Every component wil
     - error, a boolean value that is true if an error occurs
     - stories, to be used shortly to display the results on the screen.
 
-### Step 6, Added components for results
+### Step 7, Added components for results
 
 - [SuggesterResults](./src/components/Suggester/SuggesterInput/SuggesterResults/SuggesterResults.js)
   - this should include all the results
@@ -267,3 +268,21 @@ hooks added to separate logic
 - [useStoryValidation](./src/hooks/useStoryValidation.js)
   - validates the data from stories object
   - converts invalid data to valid ones
+
+### Step 8, Changes for accessibility reasons
+
+- key event listener when input is focused:
+  - ESC, clears the results
+  - enter, when there are results prevent default behaviour and writes the result in the input
+  - up & down keys, select as active the previous/next result
+- mousemove, when the mouse moves on a non-active result, makes the result active.
+- input changes to inform screen reader users:
+  - role:combobox, informs the input field is an auto-suggest.
+  - aria-autocomplete:both, informs for 2 options available:
+    - select from the suggestion list
+    - type your own input
+  - aria-controls, is needed to show which area is controlled
+  - aria-expanded, is needed to inform if the area is expanded or not
+  - aria-activedescendant, is needed to inform about the active option
+- aria-live: assertive, to announce each time the number of results found
+- a text before input to inform that users can navigate results with up and down arrow keys

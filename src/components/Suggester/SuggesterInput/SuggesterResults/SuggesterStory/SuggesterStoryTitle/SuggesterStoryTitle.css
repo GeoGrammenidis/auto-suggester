@@ -26,7 +26,7 @@
   bottom: 0;
 }
 
-.suggester-story-title:hover::before {
+.suggester-story.active .suggester-story-title::before {
   background-color: var(--suggester-results-background-color-hover);
 }
 

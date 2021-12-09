@@ -11,7 +11,7 @@ export default function SuggesterSubmit({
     <button
       className="suggester-submit"
       type="submit"
-      disabled={searchText == "" || error}
+      disabled={searchText.length < 3 || error}
     >
       {children}
     </button>

@@ -7,10 +7,13 @@ export default function SuggesterResults({
   stories,
   searchText,
   storiesNumber,
+  activeStory,
+  handleMouseMove,
+  ulId,
 }) {
   return (
     <div className={`suggester-results${stories.length > 0 ? " _open" : ""}`}>
-      <ul className="suggester-ul">
+      <ul id={ulId} className="suggester-ul">
         {stories.map(
           (story, storyNumber) =>
             storyNumber < storiesNumber && (
@@ -18,6 +21,9 @@ export default function SuggesterResults({
                 story={story}
                 key={story.objectID}
                 searchText={searchText}
+                activeStory={activeStory == storyNumber}
+                handleMouseMove={handleMouseMove}
+                storyNumber={storyNumber}
               ></SuggesterStory>
             )
         )}
@@ -30,4 +36,7 @@ SuggesterResults.propTypes = {
   stories: PropTypes.array.isRequired,
   searchText: PropTypes.string.isRequired,
   storiesNumber: PropTypes.number.isRequired,
+  activeStory: PropTypes.number.isRequired,
+  handleMouseMove: PropTypes.func.isRequired,
+  ulId: PropTypes.string.isRequired,
 };
