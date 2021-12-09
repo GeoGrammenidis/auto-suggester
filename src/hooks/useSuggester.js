@@ -13,6 +13,7 @@ function storiesReducer(state, action) {
         error: false,
         activeStory: 0,
         selectedValue: false,
+        loading: true,
       };
     case "clear":
       return {
@@ -20,6 +21,7 @@ function storiesReducer(state, action) {
         searchText: "",
         stories: [],
         error: false,
+        loading: false,
       };
     case "hide":
       return {
@@ -54,6 +56,7 @@ function storiesReducer(state, action) {
         ...state,
         stories: action.stories.hits,
         error: false,
+        loading: false,
       };
     case "error":
       return {
@@ -61,6 +64,7 @@ function storiesReducer(state, action) {
         stories: [],
         error: true,
         errorMessage: action.errorMessage,
+        loading: false,
       };
     default:
       throw new Error(`That action type isn't supported`);
@@ -74,10 +78,12 @@ export default function useSuggester(storiesNumber = 5, inputId) {
     error: false,
     errorMessage: "",
     activeStory: 0,
+    loading: false,
   };
   const [state, dispatch] = React.useReducer(storiesReducer, initialState);
   const _isMounted = React.useRef(null);
-  const { searchText, stories, activeStory, error, errorMessage } = state;
+  const { searchText, stories, activeStory, error, errorMessage, loading } =
+    state;
 
   React.useEffect(() => {
     _isMounted.current = true;
@@ -155,6 +161,7 @@ export default function useSuggester(storiesNumber = 5, inputId) {
     errorMessage,
     stories,
     activeStory,
+    loading,
   };
 }
 useSuggester.propTypes = {

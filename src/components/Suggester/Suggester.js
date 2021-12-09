@@ -17,6 +17,7 @@ export default function Suggester({
     errorMessage,
     stories,
     activeStory,
+    loading,
     handleChange,
     handleMouseMove,
   } = useSuggester(storiesNumber, inputId);
@@ -46,6 +47,7 @@ export default function Suggester({
           stories={stories}
           storiesNumber={storiesNumber}
           activeStory={activeStory}
+          loading={loading}
         ></SuggesterInput>
         <SuggesterSubmit
           searchText={searchText}

@@ -24,3 +24,48 @@
 .suggester-input::placeholder {
   color: #8798ad;
 }
+
+.suggester-input-wrap svg {
+  position: absolute;
+  right: 24px;
+  top: calc(50% - 18px);
+  fill: #8798ad;
+  opacity: 1;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.suggester-input-wrap._loading svg {
+  animation: animate_svg 1s linear infinite;
+}
+
+.suggester-input-wrap:focus-within:not(._loading) svg {
+  opacity: 0;
+}
+
+@keyframes animate_svg {
+  0% {
+    right: 24px;
+    top: calc(50% - 18px);
+  }
+  25% {
+    top: calc(50% - 20px);
+  }
+  50% {
+    right: 28px;
+    top: calc(50% - 18px);
+  }
+  75% {
+    top: calc(50% - 16px);
+  }
+  100% {
+    right: 24px;
+    top: calc(50% - 18px);
+  }
+}
+
+.suggester-loading {
+  position: absolute;
+  font-size: 16px;
+  left: calc(100% - 75px);
+  bottom: 2px;
+}
