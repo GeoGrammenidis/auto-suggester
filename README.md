@@ -59,12 +59,14 @@ Create an auto-suggest input field where the user would type at least 3 letters 
 
 ### Improvements in mind
 
-- Commends in the code.
+- Add comments
 - Build tests for each component.
+- Clean up code
+- Add a scrollbar for vertical overflow.
 
 ### Bugs found
 
-- Nothing is yet written in this section.
+- Some times there is a CORS error. I should check that.
 
 ## How I worked on this project step by step
 
