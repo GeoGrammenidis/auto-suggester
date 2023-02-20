@@ -113,9 +113,9 @@ export default function useSuggester(storiesNumber = 5, inputId) {
     };
   });
 
-  function handleChange(e) {
-    if (e.target.value.length >= MIN_SEARCH_LENGTH) {
-      dispatch({ type: "search", searchText: e.target.value });
+  function handleChange(value) {
+    if (value.length >= MIN_SEARCH_LENGTH) {
+      dispatch({ type: "search", searchText: value });
     } else if (searchText != "") {
       dispatch({ type: "clear" });
     }

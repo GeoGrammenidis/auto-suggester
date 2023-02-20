@@ -1,5 +1,5 @@
 import React from "react";
-import _ from "lodash";
+import { debounce } from "lodash";
 import PropTypes from "prop-types";
 import SuggesterResults from "./SuggesterResults/SuggesterResults";
 import SearchSvg from "../../../assets/searchSvg.svg";
@@ -19,6 +19,11 @@ export default function SuggesterInput({
   activeStory,
   loading,
 }) {
+  const debounced = debounce((value) => {
+    handleChange(value);
+  }, 500);
+  const debouncedHandleChange = React.useCallback(debounced, [debounced]);
+
   const ariaControls = "suggester-ul";
   return (
     <div className={`suggester-input-wrap${loading ? " _loading" : ""}`}>
@@ -26,7 +31,9 @@ export default function SuggesterInput({
         id={inputId}
         className="suggester-input"
         placeholder={placeholder}
-        onChange={_.debounce((e) => handleChange(e), 500)}
+        onChange={(e) => {
+          debouncedHandleChange(e.target.value);
+        }}
         type={type}
         name={name}
         minLength="3"
