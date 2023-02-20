@@ -1,9 +1,12 @@
 {
   "name": "my-project",
   "version": "1.0.0",
+  "homepage": "https://geogrammenidis.github.io/auto-suggester/",
   "description": "Auto-suggester, a react project for demo purposes",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "webpack serve --open",
     "build": "NODE_ENV='production' webpack",
     "test": "jest"
@@ -40,6 +43,7 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-webpack-plugin": "^3.1.1",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.4.4",
     "path": "^0.12.7",
